@@ -1,7 +1,11 @@
-package ui;
+package com.pluralsight.ui;
 
 
-import com.pluralsight.*;
+import com.pluralsight.models.Chips;
+import com.pluralsight.models.Drink;
+import com.pluralsight.models.Order;
+import com.pluralsight.models.Sandwich;
+import com.pluralsight.util.ReceiptWriter;
 
 import java.io.IOException;
 import java.util.*;
