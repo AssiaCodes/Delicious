@@ -22,10 +22,16 @@ public class Drink {
 
     public static Drink orderDrink(Scanner scanner) {
 
-        System.out.println("what size drink do you like? ");
+        System.out.println("what size drink do you like?\n" +
+                " - small \n" +
+                " - medium \n" +
+                " - large \n"
+        );
+
         String size = scanner.nextLine();
         Drink drink = new Drink(size);
         return drink;
+
     }
 
     public String toString(){

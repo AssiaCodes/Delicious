@@ -28,6 +28,7 @@ public class Topping {
             }
         }
 
+
         if(this.name.equalsIgnoreCase("american") ||
                 this.name.equalsIgnoreCase("provolone") ||
                 this.name.equalsIgnoreCase("cheddar") ||
@@ -48,7 +49,7 @@ public class Topping {
 
     @Override
     public String toString() {
-        return this.name +":"+ this.type+ ":"+getPrice();
+        return this.type +":"+ this.name+ " = "+getPrice();
     }
 }
 

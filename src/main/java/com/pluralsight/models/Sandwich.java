@@ -32,15 +32,20 @@ public class Sandwich {
         String meatTopping = scanner.nextLine();
         s.getToppings().add(new Topping(meatTopping,"meat",s.getSize()));
 
-        System.out.println("Choose Cheese Toppings: - american \n" +
+        System.out.println("*★*――――*★**★*――――*★**★*");
+
+        System.out.println("Choose Cheese Toppings:\n" +
+                " - american \n" +
                 " - provolone \n" +
                 " - cheddar \n" +
                 " - swiss \n");
         String cheeseTopping = scanner.nextLine();
         s.getToppings().add(new Topping(cheeseTopping,"cheese",s.getSize()));
 
+        System.out.println("*★*――――*★**★*――――*★**★*");
 
-        System.out.println("Choose Toppings: - lettuce \n" +
+        System.out.println("Choose Toppings: \n" +
+                " - lettuce \n" +
                 " - peppers \n" +
                 " - onions \n" +
                 " - tomatoes \n" +
@@ -51,6 +56,8 @@ public class Sandwich {
                 " - mushrooms ");
         String regularTopping = scanner.nextLine();
         s.getToppings().add(new Topping(regularTopping,"regular",s.getSize()));
+
+        System.out.println("*★*――――*★**★*――――*★**★*");
 
         System.out.println("Choose Sauce:\n" +
                 " - mayo \n" +
@@ -63,6 +70,8 @@ public class Sandwich {
 
         String sauce = scanner.nextLine();
         s.getToppings().add(new Topping(sauce,"sauce",s.getSize()));
+
+        System.out.println("*★*――――*★**★*――――*★**★*");
 
         System.out.print("Toasted? (yes/no): ");
         s.toasted = scanner.nextLine().equalsIgnoreCase("yes");
@@ -129,7 +138,11 @@ public class Sandwich {
 
     @Override
     public String toString() {
-        String sandwichSummary= "BreadType: "+this.breadType+ "\n"+ "Size "+this.size  +"\n"+ "Price "+this.price+"\n";
+        String sandwichSummary=
+                "BreadType: " + " = " +this.breadType+ "\n"+
+                "Size "+" = "+this.size  +"\n"+
+                        "Toasted "+" = "+this.toasted  +"\n"+
+                        "Price "+" = "+this.price+"\n";
         for(Topping topping: this.toppings){
             sandwichSummary = sandwichSummary + topping+"\n";
         }

@@ -8,6 +8,15 @@ public class Order {
     List<Drink> drinks = new ArrayList<>();
     List<Chips> chipsList = new ArrayList<>();
     double totalPrice;
+    String name;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 
     public void addSandwich(Sandwich sandwich){
         sandwiches.add(sandwich);
@@ -42,7 +51,9 @@ public class Order {
     }
 
     public String getOrderSummary(){
-        String summary = "";
+
+        String summary = "Order for " + this.name+ "\n" ;
+
         for(Sandwich sandwich : this.sandwiches){
             summary += sandwich.toString();
         }
@@ -51,8 +62,9 @@ public class Order {
         }
 
         for (Chips chips : this.chipsList){
-            summary += chips.toString();
+            summary += chips.toString()+"\n";
         }
+        summary +="TotalPrice: "+ totalPrice;
         return summary;
     }
 }

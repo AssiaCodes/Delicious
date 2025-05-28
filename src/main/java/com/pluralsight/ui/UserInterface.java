@@ -15,16 +15,19 @@ public class UserInterface {
 
     public static void main(String[] args) throws IOException {
         while (true) {
-            System.out.println("=== DELI-cious Point of Sale ===");
-            System.out.println("1) New Order");
-            System.out.println("0) Exit");
+            System.out.println("★*★*★* Welcome to DELI-cious\uD83D\uDE0B ★*★*★*");
+            System.out.println(" ღ꧁ღ╭⊱ꕥ Home screen  ꕥ⊱╮ღ꧂ღ ");
+
+            System.out.println("1- New Order");
+
+            System.out.println("0- Exit");
             System.out.print("Choose an option: ");
             String choice = scanner.nextLine();
 
             if (choice.equals("1")) {
                 handleNewOrder();
             } else if (choice.equals("0")) {
-                System.out.println("Goodbye!");
+                System.out.println("Thank you for your order. Have a great day!");
                 break;
             }
         }
@@ -32,13 +35,16 @@ public class UserInterface {
 
     private static void handleNewOrder() throws IOException {
         Order order = new Order();
+        System.out.println("what is name for your order?");
+        String name =scanner.nextLine();
+        order.setName(name);
         while (true) {
-            System.out.println("=== Order Menu ===");
-            System.out.println("1) Add Sandwich");
-            System.out.println("2) Add Drink");
-            System.out.println("3) Add Chips");
-            System.out.println("4) Checkout");
-            System.out.println("0) Cancel Order");
+            System.out.println("＊＊☆＊＊ Order Menu ＊＊☆＊＊");
+            System.out.println("1- Add Sandwich");
+            System.out.println("2- Add Drink");
+            System.out.println("3- Add Chips");
+            System.out.println("4- Checkout");
+            System.out.println("0- Cancel Order");
             System.out.print("Choose an option: ");
             String choice = scanner.nextLine();
 
@@ -60,8 +66,23 @@ public class UserInterface {
 
                 case "4":
                     System.out.println(order.getOrderSummary());
-                    ReceiptWriter.createReceiptFile(order.getOrderSummary());
                     System.out.println("Total: $" + order.getTotalPrice());
+                    System.out.println("choose an option:");
+                    System.out.println("1- Confirm");
+                    System.out.println("2- Cancel");
+
+                    String input = scanner.nextLine();
+                    if(input.equalsIgnoreCase("1")){
+                        ReceiptWriter.createReceiptFile(order.getOrderSummary());
+                        System.out.println( "Thank you! Your order is confirmed✅");
+                        return;
+                    }
+                    if(input.equalsIgnoreCase("2")){
+                        System.out.println("Cancelled");
+                        System.out.println("Good bye!");
+                        return;
+                    }
+
                     break;
 
                 case "0":
