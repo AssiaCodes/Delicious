@@ -2,10 +2,12 @@ package com.pluralsight.models;
 
 import java.util.Scanner;
 
+
 public class Chips {
     private double price;
 
     public static Chips orderChips(Scanner scanner) {
+        System.out.println("*★**★*―――― Chips  ――――*★**★*");
 
 
         Chips chips = new Chips();
@@ -19,7 +21,7 @@ public class Chips {
 
     @Override
     public String toString() {
-        return "Chips: "+getPrice();
+        return "Chips "+" : "+getPrice();
     }
 
 }

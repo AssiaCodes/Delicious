@@ -18,53 +18,61 @@ public class Order {
         this.name = name;
     }
 
-    public void addSandwich(Sandwich sandwich){
+    public void addSandwich(Sandwich sandwich) {
         sandwiches.add(sandwich);
         totalPrice = totalPrice + sandwich.getPrice();
     }
+
     public void addDrink(Drink drink) {
         drinks.add(drink);
         totalPrice = totalPrice + drink.getPrice();
     }
+
     public void addChips(Chips chips) {
         chipsList.add(chips);
         totalPrice = totalPrice + chips.getPrice();
     }
 
-    public double getTotalPrice()
-    {
+    public double getTotalPrice() {
         return totalPrice;
     }
 
-    public List<Sandwich> getSandwiches()
-    {
+    public List<Sandwich> getSandwiches() {
         return sandwiches;
     }
 
-    public List<Drink> getDrinks()
-    {
+    public List<Drink> getDrinks() {
         return drinks;
     }
-    public List<Chips> getChips()
-    {
+
+    public List<Chips> getChips() {
         return chipsList;
     }
 
-    public String getOrderSummary(){
+    public String getOrderSummary() {
 
-        String summary = "Order for " + this.name+ "\n" ;
 
-        for(Sandwich sandwich : this.sandwiches){
-            summary += sandwich.toString();
+        String summary = "Order for " + this.name + "\n";
+        summary = summary + "****************"+"\n";
+        for (Sandwich sandwich : this.sandwiches) {
+            summary += sandwich.toString()+"\n"+ "****************"+"\n";
         }
-        for (Drink drink : this.drinks){
-            summary += drink.toString()+"\n";
+        for (Drink drink : this.drinks) {
+            summary += drink.toString() + "\n";
         }
 
-        for (Chips chips : this.chipsList){
-            summary += chips.toString()+"\n";
+        for (Chips chips : this.chipsList) {
+            summary += chips.toString()+ "\n";
         }
-        summary +="TotalPrice: "+ totalPrice;
+
+        summary += "TotalPrice: " + totalPrice;
         return summary;
+
     }
 }
+
+
+
+
+
+

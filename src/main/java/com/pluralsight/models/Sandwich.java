@@ -14,14 +14,23 @@ public class Sandwich {
 
     public static Sandwich buildSandwich(Scanner scanner) {
         Sandwich s= new Sandwich();
-        System.out.print("Choose bread (white/wheat/rye/wrap): ");
+        System.out.println("*★**★*―――― Bread choices ――――*★**★*");
+        System.out.print("Choose bread:\n" +
+                " - white\n" +
+                " - wheat\n" +
+                " - rye\n" +
+                " - wrap\n ");
         s.breadType = scanner.nextLine();
-        System.out.print("Choose size (4\"/8\"/12\"): ");
+
+        System.out.println("*★**★*―――― Sandwich sizes ――――*★**★*");
+        System.out.print("Choose size:\n" +
+                 " - 4\"\n " +
+                 " - 8\"\n " +
+                 " - 12\"\n ");
         s.size = Integer.parseInt(scanner.nextLine());
 
 
-
-
+        System.out.println("*★**★*―――― Premium toppings ――――*★**★*");
         System.out.println("Choose Meat Toppings:\n" +
                 " - Steak \n" +
                 " - ham \n" +
@@ -32,8 +41,6 @@ public class Sandwich {
         String meatTopping = scanner.nextLine();
         s.getToppings().add(new Topping(meatTopping,"meat",s.getSize()));
 
-        System.out.println("*★*――――*★**★*――――*★**★*");
-
         System.out.println("Choose Cheese Toppings:\n" +
                 " - american \n" +
                 " - provolone \n" +
@@ -42,7 +49,7 @@ public class Sandwich {
         String cheeseTopping = scanner.nextLine();
         s.getToppings().add(new Topping(cheeseTopping,"cheese",s.getSize()));
 
-        System.out.println("*★*――――*★**★*――――*★**★*");
+        System.out.println("*★**★*―――― Regular toppings ――――*★**★*");
 
         System.out.println("Choose Toppings: \n" +
                 " - lettuce \n" +
@@ -57,7 +64,6 @@ public class Sandwich {
         String regularTopping = scanner.nextLine();
         s.getToppings().add(new Topping(regularTopping,"regular",s.getSize()));
 
-        System.out.println("*★*――――*★**★*――――*★**★*");
 
         System.out.println("Choose Sauce:\n" +
                 " - mayo \n" +
@@ -71,7 +77,7 @@ public class Sandwich {
         String sauce = scanner.nextLine();
         s.getToppings().add(new Topping(sauce,"sauce",s.getSize()));
 
-        System.out.println("*★*――――*★**★*――――*★**★*");
+        System.out.println("*★**★*―――― *★**★* ――――*★**★*");
 
         System.out.print("Toasted? (yes/no): ");
         s.toasted = scanner.nextLine().equalsIgnoreCase("yes");
@@ -139,13 +145,13 @@ public class Sandwich {
     @Override
     public String toString() {
         String sandwichSummary=
-                "BreadType: " + " = " +this.breadType+ "\n"+
-                "Size "+" = "+this.size  +"\n"+
-                        "Toasted "+" = "+this.toasted  +"\n"+
-                        "Price "+" = "+this.price+"\n";
+                "BreadType " + " : " +this.breadType+ "\n"+
+                        "Size "+" : "+this.size  +"\n"+
+                        "Toasted "+" : "+this.toasted  +"\n";
         for(Topping topping: this.toppings){
             sandwichSummary = sandwichSummary + topping+"\n";
         }
+        sandwichSummary = sandwichSummary + "Sandwich Price: "+this.price +"\n";
         return sandwichSummary;
     }
 }

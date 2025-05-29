@@ -17,29 +17,31 @@ public class UserInterface {
         while (true) {
             System.out.println("★*★*★* Welcome to DELI-cious\uD83D\uDE0B ★*★*★*");
             System.out.println(" ღ꧁ღ╭⊱ꕥ Home screen  ꕥ⊱╮ღ꧂ღ ");
-
             System.out.println("1- New Order");
-
             System.out.println("0- Exit");
             System.out.print("Choose an option: ");
             String choice = scanner.nextLine();
 
+
+
             if (choice.equals("1")) {
                 handleNewOrder();
-            } else if (choice.equals("0")) {
-                System.out.println("Thank you for your order. Have a great day!");
-                break;
+            }
+
+            else if (choice.equals("0")) {
+                System.out.println("Thank you for your order. Have a great day\uD83D\uDE0A!");
+                return;
             }
         }
     }
 
     private static void handleNewOrder() throws IOException {
         Order order = new Order();
-        System.out.println("what is name for your order?");
+        System.out.println("What is the name for your order?");
         String name =scanner.nextLine();
         order.setName(name);
         while (true) {
-            System.out.println("＊＊☆＊＊ Order Menu ＊＊☆＊＊");
+            System.out.println("＊☆＊＊☆＊＊ Order Menu ＊＊☆＊＊☆＊");
             System.out.println("1- Add Sandwich");
             System.out.println("2- Add Drink");
             System.out.println("3- Add Chips");
@@ -65,9 +67,10 @@ public class UserInterface {
                     break;
 
                 case "4":
+                    System.out.println("*★**★*―――― Checkout ――――*★**★*");
                     System.out.println(order.getOrderSummary());
-                    System.out.println("Total: $" + order.getTotalPrice());
-                    System.out.println("choose an option:");
+                    System.out.println("*★**★*―――― Review Your Order ――――*★**★*");
+                    System.out.println("Please review and confirm your order selection.");
                     System.out.println("1- Confirm");
                     System.out.println("2- Cancel");
 
@@ -78,7 +81,7 @@ public class UserInterface {
                         return;
                     }
                     if(input.equalsIgnoreCase("2")){
-                        System.out.println("Cancelled");
+                        System.out.println("Order Cancelled");
                         System.out.println("Good bye!");
                         return;
                     }
