@@ -49,7 +49,7 @@ public class Topping {
 
     @Override
     public String toString() {
-        return this.type +":"+ this.name+ " = "+getPrice();
+        return this.type +"-"+ this.name+ " : $"+getPrice();
     }
 }
 

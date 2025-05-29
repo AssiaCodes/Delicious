@@ -65,7 +65,7 @@ public class Order {
             summary += chips.toString()+ "\n";
         }
 
-        summary += "TotalPrice: " + totalPrice;
+        summary += "TotalPrice: " + "$" + totalPrice;
         return summary;
 
     }

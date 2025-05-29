@@ -50,7 +50,7 @@ public class Drink {
 
     }
     public String toString(){
-        return "Drink Size: "+size +"\n Drink Type: "+type+" \n Drink Price: " +getPrice();
+        return "Drink Size: "+size +"\n Drink Type: "+type+" \n Drink Price:  "+"$" + getPrice();
 
     }
 }

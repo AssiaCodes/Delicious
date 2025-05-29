@@ -146,12 +146,12 @@ public class Sandwich {
     public String toString() {
         String sandwichSummary=
                 "BreadType " + " : " +this.breadType+ "\n"+
-                        "Size "+" : "+this.size  +"\n"+
+                        "Size "+" : "+this.size  +" inches \n"+
                         "Toasted "+" : "+this.toasted  +"\n";
         for(Topping topping: this.toppings){
             sandwichSummary = sandwichSummary + topping+"\n";
         }
-        sandwichSummary = sandwichSummary + "Sandwich Price: "+this.price +"\n";
+        sandwichSummary = sandwichSummary + "Sandwich Price: $"+this.price +"\n";
         return sandwichSummary;
     }
 }
