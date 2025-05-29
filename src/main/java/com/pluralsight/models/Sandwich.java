@@ -12,6 +12,25 @@ public class Sandwich {
     private boolean toasted;
     private List<Topping> toppings = new ArrayList<>();
     private double price;
+    private boolean extraMeat;
+    public boolean isExtraMeat() {
+        return extraMeat;
+    }
+
+    public void setExtraMeat(boolean extraMeat) {
+        this.extraMeat = extraMeat;
+        if(this.size==4){
+            this.price += 0.5;
+        }
+        if(this.size==8){
+            this.price += 1;
+        }
+        if(this.size==12){
+            this.price += 1.5;
+        }
+    }
+
+
 
     // Builds a sandwich based on user input
     public static Sandwich buildSandwich(Scanner scanner) {
@@ -46,6 +65,11 @@ public class Sandwich {
                 " - bacon \n");
         String meatTopping = scanner.nextLine();
         s.getToppings().add(new Topping(meatTopping,"meat",s.getSize()));
+
+        //
+        System.out.print("Add extra meat? (yes/no): ");
+        boolean extraMeat = scanner.nextLine().equalsIgnoreCase("yes");
+        s.setExtraMeat(extraMeat);
 
         // Ask for cheese topping
         System.out.println("Choose Cheese Toppings:\n" +
@@ -153,6 +177,7 @@ public class Sandwich {
         for(Topping topping: this.toppings){
             sandwichSummary = sandwichSummary + topping+"\n";
         }
+        sandwichSummary = sandwichSummary + "Extra Meat: "+this.extraMeat+"\n";
         sandwichSummary = sandwichSummary + "Sandwich Price: $"+this.price +"\n";
         return sandwichSummary;
     }
