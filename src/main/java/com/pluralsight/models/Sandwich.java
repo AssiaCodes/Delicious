@@ -13,9 +13,21 @@ public class Sandwich {
     private List<Topping> toppings = new ArrayList<>();
     private double price;
     private boolean extraMeat;
+    private boolean extraCheese;
+
+    public boolean isExtraCheese() {
+        return extraCheese;
+    }
+
+
+    public void setToppings(List<Topping> toppings) {
+        this.toppings = toppings;
+    }
+
     public boolean isExtraMeat() {
         return extraMeat;
     }
+
 
     public void setExtraMeat(boolean extraMeat) {
         this.extraMeat = extraMeat;
@@ -27,6 +39,18 @@ public class Sandwich {
         }
         if(this.size==12){
             this.price += 1.5;
+        }
+    }
+    public void setExtraCheese(boolean extraCheese) {
+        this.extraCheese = extraCheese;
+        if(this.size==4){
+            this.price += 0.30;
+        }
+        if(this.size==8){
+            this.price += 0.60;
+        }
+        if(this.size==12){
+            this.price += 0.90;
         }
     }
 
@@ -79,6 +103,11 @@ public class Sandwich {
                 " - swiss \n");
         String cheeseTopping = scanner.nextLine();
         s.getToppings().add(new Topping(cheeseTopping,"cheese",s.getSize()));
+
+        System.out.print("Add extra cheese? (yes/no): ");
+        boolean extraCheese = scanner.nextLine().equalsIgnoreCase("yes");
+        s.setExtraCheese(extraCheese);
+
 
         // Ask for regular toppings
         System.out.println("*★**★*―――― Regular toppings ――――*★**★*");
@@ -178,6 +207,7 @@ public class Sandwich {
             sandwichSummary = sandwichSummary + topping+"\n";
         }
         sandwichSummary = sandwichSummary + "Extra Meat: "+this.extraMeat+"\n";
+        sandwichSummary = sandwichSummary + "Extra Cheese: "+this.extraCheese+"\n";
         sandwichSummary = sandwichSummary + "Sandwich Price: $"+this.price +"\n";
         return sandwichSummary;
     }
