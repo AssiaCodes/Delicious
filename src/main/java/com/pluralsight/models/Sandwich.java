@@ -6,14 +6,18 @@ import java.util.Scanner;
 
 
 public class Sandwich {
+    // Sandwich attributes
     private String breadType;
     private int size;
     private boolean toasted;
     private List<Topping> toppings = new ArrayList<>();
     private double price;
 
+    // Builds a sandwich based on user input
     public static Sandwich buildSandwich(Scanner scanner) {
         Sandwich s= new Sandwich();
+
+        // Ask for bread type
         System.out.println("*★**★*―――― Bread choices ――――*★**★*");
         System.out.print("Choose bread:\n" +
                 " - white\n" +
@@ -22,6 +26,8 @@ public class Sandwich {
                 " - wrap\n ");
         s.breadType = scanner.nextLine();
 
+
+        // Ask for sandwich size
         System.out.println("*★**★*―――― Sandwich sizes ――――*★**★*");
         System.out.print("Choose size:\n" +
                  " - 4\"\n " +
@@ -29,7 +35,7 @@ public class Sandwich {
                  " - 12\"\n ");
         s.size = Integer.parseInt(scanner.nextLine());
 
-
+         // Ask for cheese topping
         System.out.println("*★**★*―――― Premium toppings ――――*★**★*");
         System.out.println("Choose Meat Toppings:\n" +
                 " - Steak \n" +
@@ -41,6 +47,7 @@ public class Sandwich {
         String meatTopping = scanner.nextLine();
         s.getToppings().add(new Topping(meatTopping,"meat",s.getSize()));
 
+        // Ask for cheese topping
         System.out.println("Choose Cheese Toppings:\n" +
                 " - american \n" +
                 " - provolone \n" +
@@ -49,8 +56,8 @@ public class Sandwich {
         String cheeseTopping = scanner.nextLine();
         s.getToppings().add(new Topping(cheeseTopping,"cheese",s.getSize()));
 
+        // Ask for regular toppings
         System.out.println("*★**★*―――― Regular toppings ――――*★**★*");
-
         System.out.println("Choose Toppings: \n" +
                 " - lettuce \n" +
                 " - peppers \n" +
@@ -64,7 +71,7 @@ public class Sandwich {
         String regularTopping = scanner.nextLine();
         s.getToppings().add(new Topping(regularTopping,"regular",s.getSize()));
 
-
+        // Ask for sauce
         System.out.println("Choose Sauce:\n" +
                 " - mayo \n" +
                 " - mustard \n" +
@@ -77,17 +84,15 @@ public class Sandwich {
         String sauce = scanner.nextLine();
         s.getToppings().add(new Topping(sauce,"sauce",s.getSize()));
 
+        // Ask if the sandwich should be toasted
         System.out.println("*★**★*―――― *★**★* ――――*★**★*");
-
         System.out.print("Toasted? (yes/no): ");
         s.toasted = scanner.nextLine().equalsIgnoreCase("yes");
 
-
         return s;
+
     }
-
-
-
+    // Getters and setters
         public String getBreadType () {
             return breadType;
         }
@@ -121,10 +126,7 @@ public class Sandwich {
         }
 
 
-
-
-
-
+        // Calculates total sandwich price
         public double getPrice() {
 
             if (this.size == 4) {
@@ -141,7 +143,7 @@ public class Sandwich {
             }
             return price;
         }
-
+    // Creates a summary of the sandwich details
     @Override
     public String toString() {
         String sandwichSummary=

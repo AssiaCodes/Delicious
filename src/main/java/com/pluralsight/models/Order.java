@@ -4,12 +4,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Order {
+
+    // Lists to store each item in the order
     List<Sandwich> sandwiches = new ArrayList<>();
     List<Drink> drinks = new ArrayList<>();
     List<Chips> chipsList = new ArrayList<>();
+
+    // Total price of the entire order
     double totalPrice;
+    // Customer name
     String name;
 
+    // Getter and setter for customer name
     public String getName() {
         return name;
     }
@@ -18,6 +24,7 @@ public class Order {
         this.name = name;
     }
 
+    // Adds a sandwich to the order and updates total price
     public void addSandwich(Sandwich sandwich) {
         sandwiches.add(sandwich);
         totalPrice = totalPrice + sandwich.getPrice();
@@ -49,11 +56,13 @@ public class Order {
         return chipsList;
     }
 
+    // Builds and returns a summary of the entire order for display or receipt
     public String getOrderSummary() {
-
 
         String summary = "Order for " + this.name + "\n";
         summary = summary + "****************"+"\n";
+
+        // Add sandwich details
         for (Sandwich sandwich : this.sandwiches) {
             summary += sandwich.toString()+"\n"+ "****************"+"\n";
         }
@@ -65,6 +74,7 @@ public class Order {
             summary += chips.toString()+ "\n";
         }
 
+        // Add total price to summary
         summary += "TotalPrice: " + "$" + totalPrice;
         return summary;
 

@@ -15,6 +15,7 @@ public class UserInterface {
 
     public static void main(String[] args) throws IOException {
         while (true) {
+            // Display main menu
             System.out.println("★*★*★* Welcome to DELI-cious\uD83D\uDE0B ★*★*★*");
             System.out.println(" ღ꧁ღ╭⊱ꕥ Home screen  ꕥ⊱╮ღ꧂ღ ");
             System.out.println("1- New Order");
@@ -25,10 +26,12 @@ public class UserInterface {
 
 
             if (choice.equals("1")) {
+                // Begin a new order
                 handleNewOrder();
             }
 
             else if (choice.equals("0")) {
+                // Exit the application
                 System.out.println("Thank you for your order. Have a great day\uD83D\uDE0A!");
                 return;
             }
@@ -37,9 +40,13 @@ public class UserInterface {
 
     private static void handleNewOrder() throws IOException {
         Order order = new Order();
+
+        // Ask for customer name
         System.out.println("What is the name for your order?");
         String name =scanner.nextLine();
         order.setName(name);
+
+        // Order loop for adding items or checking out
         while (true) {
             System.out.println("＊☆＊＊☆＊＊ Order Menu ＊＊☆＊＊☆＊");
             System.out.println("1- Add Sandwich");
@@ -50,6 +57,7 @@ public class UserInterface {
             System.out.print("Choose an option: ");
             String choice = scanner.nextLine();
 
+            // Order loop for adding items or checking out
             switch (choice) {
                 case "1":
                     Sandwich sandwich = Sandwich.buildSandwich(scanner);
@@ -67,6 +75,7 @@ public class UserInterface {
                     break;
 
                 case "4":
+                    // Checkout: show summary and confirm
                     System.out.println("*★**★*―――― Checkout ――――*★**★*");
                     System.out.println(order.getOrderSummary());
                     System.out.println("*★**★*―――― Review Your Order ――――*★**★*");
@@ -76,11 +85,13 @@ public class UserInterface {
 
                     String input = scanner.nextLine();
                     if(input.equalsIgnoreCase("1")){
+                        // Confirm order and write receipt
                         ReceiptWriter.createReceiptFile(order.getOrderSummary());
                         System.out.println( "Thank you! Your order is confirmed✅");
                         return;
                     }
-                    if(input.equalsIgnoreCase("2")){
+                     else if(input.equalsIgnoreCase("2")){
+                        // Cancel confirmed order
                         System.out.println("Order Cancelled");
                         System.out.println("Good bye!");
                         return;
@@ -89,6 +100,7 @@ public class UserInterface {
                     break;
 
                 case "0":
+                    // Cancel and return to home
                     System.out.println("Order cancelled.");
                     return;
             }
