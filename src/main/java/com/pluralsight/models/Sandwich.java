@@ -14,6 +14,17 @@ public class Sandwich {
     private double price;
     private boolean extraMeat;
     private boolean extraCheese;
+    private boolean addSide;
+
+    public boolean isAddSide() {
+        return addSide;
+    }
+
+    public void setAddSide(boolean addSide) {
+        this.addSide = addSide;
+    }
+
+
 
     public boolean isExtraCheese() {
         return extraCheese;
@@ -137,6 +148,10 @@ public class Sandwich {
         String sauce = scanner.nextLine();
         s.getToppings().add(new Topping(sauce,"sauce",s.getSize()));
 
+        System.out.print("Add Sides? (yes/no): ");
+        boolean addSide = scanner.nextLine().equalsIgnoreCase("yes");
+        s.setAddSide(addSide);
+
         // Ask if the sandwich should be toasted
         System.out.println("*★**★*―――― *★**★* ――――*★**★*");
         System.out.print("Toasted? (yes/no): ");
@@ -208,6 +223,7 @@ public class Sandwich {
         }
         sandwichSummary = sandwichSummary + "Extra Meat: "+this.extraMeat+"\n";
         sandwichSummary = sandwichSummary + "Extra Cheese: "+this.extraCheese+"\n";
+        sandwichSummary = sandwichSummary + "Add Sides: "+this.addSide+"\n";
         sandwichSummary = sandwichSummary + "Sandwich Price: $"+this.price +"\n";
         return sandwichSummary;
     }
