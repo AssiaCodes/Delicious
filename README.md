@@ -67,7 +67,19 @@ One interesting part of this project is  how the handleNewOrder() method acts as
 and dynamically building each part of the order—from sandwiches to drinks and chips—while also offering real-time feedback,
 flexibility to cancel or confirm, and even generating a receipt file with the final order summary.
 
-switch (choice) {
+// Display the main order menu options
+        while (true) {
+            System.out.println("＊☆＊＊☆＊＊ Order Menu ＊＊☆＊＊☆＊");
+            System.out.println("1- Add Sandwich");
+            System.out.println("2- Add Drink");
+            System.out.println("3- Add Chips");
+            System.out.println("4- Checkout");
+            System.out.println("0- Cancel Order");
+            System.out.print("Choose an option: ");
+            String choice = scanner.nextLine();
+
+            // Order loop for adding items or checking out
+            switch (choice) {
                 case "1":
                     Sandwich sandwich = Sandwich.buildSandwich(scanner);
                     order.addSandwich(sandwich);
@@ -84,6 +96,7 @@ switch (choice) {
                     break;
 
                 case "4":
+                    // show summary and confirm
                     System.out.println("*★**★*―――― Checkout ――――*★**★*");
                     System.out.println(order.getOrderSummary());
                     System.out.println("*★**★*―――― Review Your Order ――――*★**★*");
@@ -93,11 +106,13 @@ switch (choice) {
 
                     String input = scanner.nextLine();
                     if(input.equalsIgnoreCase("1")){
+                        // Confirm order and write receipt
                         ReceiptWriter.createReceiptFile(order.getOrderSummary());
                         System.out.println( "Thank you! Your order is confirmed✅");
                         return;
                     }
-                    if(input.equalsIgnoreCase("2")){
+                     else if(input.equalsIgnoreCase("2")){
+                        // Cancel confirmed order
                         System.out.println("Order Cancelled");
                         System.out.println("Good bye!");
                         return;
@@ -106,7 +121,9 @@ switch (choice) {
                     break;
 
                 case "0":
+                    // Cancel and return to home
                     System.out.println("Order cancelled.");
                     return;
             }
         }
+    
