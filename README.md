@@ -67,7 +67,11 @@ One interesting part of this project is  how the handleNewOrder() method acts as
 and dynamically building each part of the order—from sandwiches to drinks and chips—while also offering real-time feedback,
 flexibility to cancel or confirm, and even generating a receipt file with the final order summary.
 
-// Display the main order menu options
+
+
+
+
+             // Display the main order menu options
         while (true) {
             System.out.println("＊☆＊＊☆＊＊ Order Menu ＊＊☆＊＊☆＊");
             System.out.println("1- Add Sandwich");
