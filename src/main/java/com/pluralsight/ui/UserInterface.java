@@ -45,7 +45,7 @@ public class UserInterface {
         String name =scanner.nextLine();
         order.setName(name);
 
-        // Order loop for adding items or checking out
+        // Display the main order menu options
         while (true) {
             System.out.println("＊☆＊＊☆＊＊ Order Menu ＊＊☆＊＊☆＊");
             System.out.println("1- Add Sandwich");
@@ -74,7 +74,7 @@ public class UserInterface {
                     break;
 
                 case "4":
-                    // Checkout: show summary and confirm
+                    // show summary and confirm
                     System.out.println("*★**★*―――― Checkout ――――*★**★*");
                     System.out.println(order.getOrderSummary());
                     System.out.println("*★**★*―――― Review Your Order ――――*★**★*");
