@@ -50,7 +50,7 @@ public class Drink {
         String size = scanner.nextLine();
 
         // Ask user for drink type
-        System.out.println("Choose a soda type: \n" +
+        System.out.println("Choose a drink type: \n" +
                 " - Soda \n" +
                 " - Tea \n");
         String type = scanner.nextLine();

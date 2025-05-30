@@ -148,7 +148,7 @@ public class Sandwich {
         String sauce = scanner.nextLine();
         s.getToppings().add(new Topping(sauce,"sauce",s.getSize()));
 
-        System.out.print("Add Sides? (yes/no): ");
+        System.out.print("Add Sides? (au jus/sauce/none):");
         boolean addSide = scanner.nextLine().equalsIgnoreCase("yes");
         s.setAddSide(addSide);
 

@@ -24,7 +24,6 @@ public class UserInterface {
             String choice = scanner.nextLine();
 
 
-
             if (choice.equals("1")) {
                 // Begin a new order
                 handleNewOrder();
